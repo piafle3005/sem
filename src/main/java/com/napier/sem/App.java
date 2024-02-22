@@ -81,9 +81,11 @@ public class App
             // Create string for SQL statement
             String strSelect =
                 "SELECT employees.emp_no, employees.first_name, employees.last_name, titles.title, salaries.salary " +
-                        "FROM employees, titles, salaries " +
+                        "FROM employees, titles, salaries, dept_emp, departments " +
                         "WHERE employees.emp_no = titles.emp_no " +
                         "AND employees.emp_no = salaries.emp_no " +
+                        "AND employees.emp_no = dept_emp.emp_no " +
+                        "AND dept_emp.dept_no = departments.dept_no " +
                         "AND employees.emp_no = " + ID;
 
             // Execute SQL statement
